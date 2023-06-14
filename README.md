@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Список предложений
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Учебный проект курса [React для JS-разработчиков](https://netology.ru/programs/react)
 
-## Available Scripts
+## **Задача**
 
-In the project directory, you can run:
+Вывод списка предложений каталога Etsy.com, с использованием библиотеки React.
 
-### `npm start`
+## **Описание компонента**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Для отображения списка создан компонент `Listing`, который принимает следующие атрибуты:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`items` — список предложений, массив объектов, по умолчанию пустой массив.
+Компонент должен создавать на основе списка предложений следующий HTML-код:
 
-### `npm test`
+```JavaScript
+<div class="item-list">
+  <div class="item">
+    <div class="item-image">
+      <a href="https://www.etsy.com/listing/292754135/woodland-fairy">
+        <img src="https://img1.etsystatic.com/156/0/12814579/il_570xN.1173240751_50hv.jpg">
+      </a>
+    </div>
+    <div class="item-details">
+      <p class="item-title">Woodland Fairy</p>
+      <p class="item-price">$3.99</p>
+      <p class="item-quantity level-medium">12 left</p>
+    </div>
+  </div>
+</div>
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Если название предложения превышает `50` символов, то выводятся только первые `50` символов, и добавлять символ `…` в конце.
 
-### `npm run build`
+При выводе стоимости предложения необходимо учитывать валюту. Если цена задана:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* в долларах США, код `USD`, то цену вывести в формате `$50.00`;
+* в евро, код `EUR`, то цену вывести в формате `€50.00`;
+* в остальных случаях цену вывести в формате `50.00 GBP`, где `GBP` — код валюты.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Вывести остаток, подсветив его в зависимости от количества, используя класс `level-*`:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* `level-low` — если остаток меньше 10 включительно;
+* `level-medium` — если остаток меньше 20 включительно;
+* `level-high` — если остаток больше 20.
+## **Стек технологий**
+![HTML](./public/images/html.svg)
+![CSS](./public/images/css.svg)
+![JS](./public/images/js.svg)
+![REACT](./public/images/react.svg)
+![GIT](./public/images/git.svg)
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## [**Демо**](https://listing-tau.vercel.app/)
+![demo](./public/images/demo.jpg)
